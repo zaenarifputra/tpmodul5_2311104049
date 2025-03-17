@@ -2,11 +2,19 @@
 
 namespace tpmodul5_2311104049
 {
-    class HaloGeneric
+    // Kelas Generic DataGeneric
+    class DataGeneric<T>
     {
-        public void SapaUser<T>(T user)
+        private T data;
+
+        public DataGeneric(T data)
         {
-            Console.WriteLine($"Halo user {user}");
+            this.data = data;
+        }
+
+        public void PrintData()
+        {
+            Console.WriteLine($"Data yang tersimpan adalah: {data}");
         }
     }
 
@@ -14,13 +22,11 @@ namespace tpmodul5_2311104049
     {
         static void Main()
         {
-            HaloGeneric halo = new HaloGeneric();
+            Console.Write("Masukkan NIM Anda: ");
+            string inputNIM = Console.ReadLine();
 
-            Console.Write("Masukkan nama Anda: ");
-            string nama = Console.ReadLine();
-
-            halo.SapaUser(nama);
-
+            DataGeneric<string> dataNIM = new DataGeneric<string>(inputNIM);
+            dataNIM.PrintData();
             Console.ReadLine();
         }
     }
